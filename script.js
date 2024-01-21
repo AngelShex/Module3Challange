@@ -57,6 +57,7 @@ showQuestion();
 
 // loads next question as we answer through the list
 function showQuestion(){
+  resetState();
   let currentQuestion = questions[currentQuestionIndex];
   let questionNo = currentQuestion + 1;
   questionElement.innerHTML = questionNo + "." + currentQuestion.
@@ -70,3 +71,12 @@ function showQuestion(){
     answerButton.appendChild(button);
   });
 }
+
+function resetState(){
+  nextButton.style.display = "none"; 
+  while(answerButton.firstChild){
+    answerButton.removeChild(answerButton.firstChild);
+  }
+}
+
+startQuiz();
