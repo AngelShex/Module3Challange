@@ -15,7 +15,11 @@ body{
 
 .app{
   background: #fff;
-  width: ;
+  width: 90%;
+  max-width: 800px;
+  margin: 200px auto 0;
+  border-radius: 70px;
+  padding: 190px;
 }
 
 
