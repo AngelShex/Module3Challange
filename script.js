@@ -1,4 +1,4 @@
-
+// added questions to the java file with answers
 const questions = [
   {
     question: "How do you create an index.html file?",
@@ -37,3 +37,8 @@ const questions = [
                  ]
         },
 ];
+
+// adding variables for the questions 
+const questionElement = document.getElementById("question");
+const answerButton = document.getElementById("answer-buttons");
+const nextButton = document.getElementById("next-btn");
