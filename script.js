@@ -54,3 +54,11 @@ score = 0;
 nextButton.innerHTML = "Next";
 showQuestion();
 }
+
+// loads next question as we answer through the list
+function showQuestion(){
+  let currentQuestion = questions[currentQuestionIndex];
+  let questionNo = currentQuestion + 1;
+  questionElement.innerHTML = questionNo + "." + currentQuestion.
+  question;
+}
