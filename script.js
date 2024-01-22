@@ -91,6 +91,15 @@ if(isCorrect){
 }else{
   selectedBtn.classList.add("incorrect");
 }
+
+// check if answer is true  or inccorect
+Array.from(answerButtons.children).forEach(button => {
+  if(button.dataset.correct === "ture"){
+    button.classList.add("correct");
+  }
+  button.disabled = ture;
+});
+nextButton.style.display = "block";
 }
 
 startQuiz();
