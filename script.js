@@ -88,10 +88,11 @@ function selectAnswer(e){
   const isCorrect = selectedBtn.dataset.correct === "true";
 if(isCorrect){
   selectedBtn.classList.add("correct");
+  score++;
 }else{
   selectedBtn.classList.add("incorrect");
 }
-Array.from(answerButton.children).forEach(button => {
+Array.from(answerButton.children).forEach(button=>{
   if(button.dataset.correct === "ture"){
     button.classList.add("correct");
   }
@@ -99,5 +100,33 @@ Array.from(answerButton.children).forEach(button => {
 });
 nextButton.style.display = "block";
 }
+
+
+function showScore(){
+  resetState();
+  questionElement.innerHTML = 'You scored ${score} out of ${questions.length}!';
+  nextButton.innerHTML = "play Again";
+  nextButton.style.display = "block";
+}
+
+
+function handleNextButton(){
+currentQuestionIndex++;
+if(currentQuestionIndex < questions.length){
+showQuestion();
+}else{
+  showScore();
+}
+}
+
+
+
+nextButton.addEventListener("click", ()=>{
+  if(currentQuestionIndex < questions.length){
+    handleNextButton();
+  }else{
+    startQuiz();
+  }
+});
 
 startQuiz();
