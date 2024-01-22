@@ -91,9 +91,7 @@ if(isCorrect){
 }else{
   selectedBtn.classList.add("incorrect");
 }
-
-// check if answer is true  or inccorect
-Array.from(answerButtons.children).forEach(button => {
+Array.from(answerButton.children).forEach(button => {
   if(button.dataset.correct === "ture"){
     button.classList.add("correct");
   }
