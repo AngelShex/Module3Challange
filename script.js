@@ -21,18 +21,18 @@ const questions = [
     {
       question: "The correct first line in most index.html files is?",
       answers: [
-        { text: "<title>", correct: false},
-        { text: "<head>", correct: false},
-        { text: "<html>", correct: false},
-        { text: "<!DOCTYPE html>", correct: true},
+        { text: "title", correct: false},
+        { text: "head", correct: false},
+        { text: "html", correct: false},
+        { text: "!DOCTYPE html", correct: true},
                ]
       },
       {
         question: "What links an style.css file using your index.html file?",
         answers: [
-          { text: "<style.css+doc.ment>", correct: false},
-          { text: "<link href=style.css/>", correct: true},
-          { text: "<doc-ture.style.css>", correct: false},
+          { text: "style.css+doc.ment", correct: false},
+          { text: "link href=style.css/", correct: true},
+          { text: "doc-ture.style.css", correct: false},
           { text: "none of the above", correct: false},
                  ]
         },
@@ -40,7 +40,7 @@ const questions = [
 
 // adding variables for the questions 
 const questionElement = document.getElementById("question");
-const answerButton = document.getElementById("answer-buttons");
+const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
 
 // store question answer
@@ -62,26 +62,26 @@ function showQuestion(){
   let questionNo = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
-  // Display buttons once text is answered
+  // Display question text
   currentQuestion.answers.forEach(answer => {
     const button = document.createElement("button");
     button.innerHTML = answer.text;
     button.classList.add("btn");
-    answerButton.appendChild(button);
+    answerButtons.appendChild(button);
     if(answer.correct){
       button.dataset.correct = answer.correct;
     }
     button.addEventListener("click", selectAnswer);
   });
 }
-
+// next button while clicked
 function resetState(){
   nextButton.style.display = "none"; 
-  while(answerButton.firstChild){
-    answerButton.removeChild(answerButton.firstChild);
+  while(answerButtons.firstChild){
+    answerButtons.removeChild(answerButtons.firstChild);
   }
 }
-
+// If answer is correct or incorrect it will show
 function selectAnswer(e){
   const selectedBtn = e.target;
   const isCorrect = selectedBtn.dataset.correct === "true";
@@ -91,11 +91,11 @@ if(isCorrect){
 }else{
   selectedBtn.classList.add("incorrect");
 }
-Array.from(answerButton.children).forEach(button=>{
-  if(button.dataset.correct === "ture"){
+Array.from(answerButtons.children).forEach(button => {
+  if(button.dataset.correct === "true"){
     button.classList.add("correct");
   }
-  button.disabled = ture;
+  button.disabled = true;
 });
 nextButton.style.display = "block";
 }

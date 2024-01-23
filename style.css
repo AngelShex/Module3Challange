@@ -10,7 +10,7 @@
 
 
 body{
-  background-color: #001e4d;
+  background-color: #ae147b;
 }
 
 
@@ -27,7 +27,7 @@ body{
 
 .app h1{
   font-size: 25px;
-  color: #001e4d;
+  color: #ae147b;
   font-weight: 600;
   border-bottom: 1px solid #333;
   padding-bottom: 30px;
@@ -39,7 +39,7 @@ body{
 }
 .quiz h2{
   font-size: 18px;
-  color: #001e4d;
+  color: #ae147b;
   font-weight: 600px;
 }
 
@@ -68,7 +68,7 @@ body{
   cursor: no-drop;
 }
 #next-btn{
-  background: #001e4d;
+  background: #ae147b;
   color:#fff;
   font-weight: 500;
   width: 150px;
