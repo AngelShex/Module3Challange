@@ -59,9 +59,8 @@ showQuestion();
 function showQuestion(){
   resetState();
   let currentQuestion = questions[currentQuestionIndex];
-  let questionNo = currentQuestion + 1;
-  questionElement.innerHTML = questionNo + "." + currentQuestion.
-  question;
+  let questionNo = currentQuestionIndex + 1;
+  questionElement.innerHTML = questionNo + ". " + currentQuestion.question;
 
   // Display buttons once text is answered
   currentQuestion.answers.forEach(answer => {

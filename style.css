@@ -60,7 +60,7 @@ body{
 
 
 .btn:hover:not([disabled]){
-  background: #001e4d;
+  background: #222;
   color:#fff;
 }
 
