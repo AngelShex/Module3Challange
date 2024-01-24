@@ -42,6 +42,10 @@ const questions = [
 const questionElement = document.getElementById("question");
 const answerButtons = document.getElementById("answer-buttons");
 const nextButton = document.getElementById("next-btn");
+const startButton = document.getElementById("start")
+const questionPage = document.querySelector(".app")
+const startPage = document.querySelector(".startpage")
+
 
 // store question answer
 let currentQuestionIndex = 0;
@@ -49,6 +53,8 @@ let score = 0;
 
 // will rest quiz questions to 0 when we start quiz
 function startQuiz(){
+  questionPage.classList.remove("hide")
+  startPage.classList.add("hide")
 currentQuestionIndex = 0;
 score = 0;
 nextButton.innerHTML = "Next";
@@ -89,7 +95,8 @@ if(isCorrect){
   selectedBtn.classList.add("correct");
   score++;
 }else{
-  selectedBtn.classList.add("incorrect");
+  selectedBtn.classList.add("incorrect")
+    secondsLeft = secondsLeft - 10;
 }
 Array.from(answerButtons.children).forEach(button => {
   if(button.dataset.correct === "true"){
@@ -100,15 +107,15 @@ Array.from(answerButtons.children).forEach(button => {
 nextButton.style.display = "block";
 }
 
-
+// shows the end game score
 function showScore(){
   resetState();
-  questionElement.innerHTML = 'You scored ${score} out of ${questions.length}!';
-  nextButton.innerHTML = "play Again";
+  questionElement.innerHTML = `You scored ${score} out of ${questions.length}!`;
+  nextButton.innerHTML = "Play Again";
   nextButton.style.display = "block";
 }
 
-
+// increases questions by one
 function handleNextButton(){
 currentQuestionIndex++;
 if(currentQuestionIndex < questions.length){
@@ -118,8 +125,30 @@ showQuestion();
 }
 }
 
+// working on timer
+var timeEl = document.querySelector(".time");
+
+var secondsLeft = 50;
+timeEl.textContent = 50;
+function setTime(){
+  var timerInterval = setInterval(function(){
+  secondsLeft--;
+  timeEl.textContent = secondsLeft + " seconds left for quiz";
+
+  if(secondsLeft === 0){
+    clearInterval(timerInterval);
+    sendMessage();
+  }
+  }, 1000);
+}
+
+setTime();
 
 
+
+
+
+// restart the quiz if out of questions
 nextButton.addEventListener("click", ()=>{
   if(currentQuestionIndex < questions.length){
     handleNextButton();
@@ -128,4 +157,4 @@ nextButton.addEventListener("click", ()=>{
   }
 });
 
-startQuiz();
+startButton.addEventListener("click",startQuiz)
