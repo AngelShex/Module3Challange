@@ -96,7 +96,7 @@ if(isCorrect){
   score++;
 }else{
   selectedBtn.classList.add("incorrect")
-    secondsLeft = secondsLeft - 10;
+    secondsLeft = secondsLeft - 50;
 }
 Array.from(answerButtons.children).forEach(button => {
   if(button.dataset.correct === "true"){
@@ -115,6 +115,7 @@ function showScore(){
   nextButton.style.display = "block";
 }
 
+
 // increases questions by one
 function handleNextButton(){
 currentQuestionIndex++;
@@ -128,7 +129,7 @@ showQuestion();
 // working on timer
 var timeEl = document.querySelector(".time");
 
-var secondsLeft = 50;
+var secondsLeft = 55;
 timeEl.textContent = 50;
 function setTime(){
   var timerInterval = setInterval(function(){
