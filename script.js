@@ -96,7 +96,7 @@ if(isCorrect){
   score++;
 }else{
   selectedBtn.classList.add("incorrect")
-    secondsLeft = secondsLeft - 50;
+    secondsLeft = secondsLeft - 5;
 }
 Array.from(answerButtons.children).forEach(button => {
   if(button.dataset.correct === "true"){
